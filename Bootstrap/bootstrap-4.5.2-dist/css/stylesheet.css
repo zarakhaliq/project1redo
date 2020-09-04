@@ -31,18 +31,37 @@ h2 {
   color: green;
 }
 th {
-  color: green;
+  color: whitesmoke;
 }
 td {
-  color: rgb(64, 64, 64);
+  color: whitesmoke;
+  font-style: italic;
 }
 a {
   color: rebeccapurple;
 }
+
+a:hover {
+  color: green;
+}
+
 #modalButton {
   background-color: rebeccapurple;
+  margin-left: 5px;
+  color: white;
+}
+#saveModalbtn {
+  background-color: green;
+  color: white;
+  border-color: grey;
+}
 
-  border-color: gray;
+.modalBody70 {
+  min-height: 70vh;
+
+  max-height: 70vh;
+
+  overflow-y: scroll;
 }
 
 .loader-wrapper {
