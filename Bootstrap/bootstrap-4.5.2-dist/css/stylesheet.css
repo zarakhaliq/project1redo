@@ -15,18 +15,17 @@
   z-index: 1;
   color: white;
 }
-
+#mapid {
+  position: fixed;
+  background: transparent;
+}
 body {
-  background-color: rgb(240, 240, 240);
+  background: transparent;
 }
-section {
-  background-image: linear-gradient(
-    to bottom right,
-    rgb(240, 240, 240),
-    rgb(245, 245, 245)
-  );
-  color: rgb(64, 64, 64);
+.navbar {
+  min-height: 50px;
 }
+
 h2 {
   color: green;
 }
