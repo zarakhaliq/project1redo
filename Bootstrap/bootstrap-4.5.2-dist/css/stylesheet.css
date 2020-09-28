@@ -16,7 +16,6 @@
   color: white;
 }
 #mapid {
-  position: fixed;
   background: transparent;
 }
 body {
@@ -43,6 +42,27 @@ a {
 a:hover {
   color: green;
 }
+.modal.fade .modal-dialog {
+  -webkit-transform: scale(0.1);
+  -moz-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  transform: scale(0.1);
+  top: 300px;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.modal.fade.show .modal-dialog {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  -webkit-transform: translate3d(0, -300px, 0);
+  transform: translate3d(0, -300px, 0);
+  opacity: 1;
+}
 
 #modalButton {
   background-color: rebeccapurple;
@@ -54,7 +74,39 @@ a:hover {
   color: white;
   border-color: grey;
 }
-
+.table {
+  border: none;
+}
+.modal-title {
+  color: white;
+}
+.modal-header {
+  padding: 9px 15px;
+  border-bottom: 1px solid #eee;
+  background-color: rebeccapurple;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.close {
+  color: white;
+}
+.wikiTitle {
+  padding-top: 20px;
+  padding-left: 7px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: grey;
+}
+.container {
+  padding-bottom: 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: grey;
+}
 .modalBody70 {
   min-height: 70vh;
 
