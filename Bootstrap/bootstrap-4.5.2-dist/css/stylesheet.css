@@ -11,13 +11,13 @@ body {
 h2 {
   color: hotpink;
 }
-th {
-  color: black;
+h6 {
+  color: rgb(252, 32, 142);
   animation: textanimation2 1s ease-in-out;
 }
 
-td {
-  color: black;
+p {
+  color: white;
   font-style: italic;
   animation: textanimation2 1s ease-in-out;
 }
@@ -33,6 +33,7 @@ td {
 }
 .logo {
   animation: textanimation2 1s ease-in;
+  color: rgb(252, 32, 142) !important;
 }
 a {
   color: rebeccapurple;
@@ -76,10 +77,21 @@ a:hover {
   text-align: center;
 }
 
+#icon {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+#min_temp {
+  padding-right: 0px;
+}
+#humidity {
+  padding-left: 0px;
+}
+
 .modal-header {
-  padding: 9px 15px;
+  padding: 9px;
   border-bottom: 1px solid #eee;
-  background-color: hotpink;
+  background-color: rgb(252, 32, 142);
   -webkit-border-top-left-radius: 5px;
   -webkit-border-top-right-radius: 5px;
   -moz-border-radius-topleft: 5px;
@@ -93,32 +105,62 @@ a:hover {
   padding-top: 0px;
   padding-bottom: 2.5px;
 
-  padding-right: 5px;
+  padding-right: 15px;
   border-top: transparent;
 }
 #history {
   background: transparent;
+  padding-top: 30px;
 }
 
 .close {
   color: white;
 }
 #modal-background {
-  background-image: url("../../../cool-backgrounds.jpeg");
+  background-image: url("../../../App/background-black.jpg");
 }
-
+#address {
+  color: white;
+}
+#icon {
+  color: white;
+}
+#min_temp {
+  color: white;
+}
+#max_temp {
+  color: white;
+}
+#humidity {
+  color: white;
+}
+#timezone {
+  color: white;
+}
+#wiki {
+  padding-top: 5px;
+}
+#wikipost1 {
+  color: white;
+}
+#wikipost2 {
+  color: white;
+}
+#wikipost3 {
+  color: white;
+}
 .wikiTitle {
   padding-top: 5px;
   padding-left: 7px;
   padding-bottom: 5px;
   font-weight: bold;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: black;
+  color: rgb(252, 32, 142);
 }
-.container {
+.wikiInfo {
   padding-bottom: 20px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: black;
+  color: white;
 }
 .modalBody70 {
   min-height: 70vh;
@@ -127,7 +169,9 @@ a:hover {
 
   overflow-y: scroll;
 }
-
+.myContainer {
+  padding-top: 20px;
+}
 .loader-wrapper {
   width: 100%;
   height: 100%;
