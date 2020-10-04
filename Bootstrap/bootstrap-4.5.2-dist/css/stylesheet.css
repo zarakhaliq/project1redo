@@ -117,7 +117,7 @@ a:hover {
   color: white;
 }
 #modal-background {
-  background-image: url("../../../App/background-black.jpg");
+  background-image: url("../../../background-black.jpg");
   background-repeat: no-repeat;
   background-size: 800px 600px;
 }
