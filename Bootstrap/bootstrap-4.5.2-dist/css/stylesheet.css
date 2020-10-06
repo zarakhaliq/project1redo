@@ -87,7 +87,9 @@ a:hover {
 #humidity {
   padding-left: 0px;
 }
-
+#city {
+  padding-top: 20px;
+}
 .modal-header {
   padding: 9px;
   border-bottom: 1px solid #eee;
