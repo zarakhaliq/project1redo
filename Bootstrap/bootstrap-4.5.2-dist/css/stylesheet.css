@@ -117,10 +117,9 @@ a:hover {
   color: white;
 }
 #modal-background {
-  background-image: url("../../../background-black.jpg");
-  background-repeat: no-repeat;
-  background-size: 800px 600px;
+  background: radial-gradient(circle closest-side, #333, black);
 }
+
 #address {
   color: white;
 }
