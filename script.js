@@ -5,7 +5,9 @@ $(document).ready(function () {
   var map = L.map("mapid", {
     zoomControl: false,
   }).fitWorld();
+
   $("mapid").on("mousedown", L.DomEvent.stopPropagation);
+
   L.tileLayer(
     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
     {
@@ -20,10 +22,8 @@ $(document).ready(function () {
         "pk.eyJ1IjoiemFyYWtoYWxpcSIsImEiOiJja2RvazV1eXAxc3FzMnhxMzhtdXR4dnhvIn0.dMALGZc6TvoR80B31DmxDg",
     }
   ).addTo(map);
-  map.addControl(new L.Control.ZoomMin());
-  //var data = "countriesComp.geojson";
 
-  //var geoData = [countries];
+  map.addControl(new L.Control.ZoomMin());
 
   //Creating marker and circle that appears on html location when page loads:
 
@@ -44,84 +44,10 @@ $(document).ready(function () {
         },
         dataType: "json",
         success: function (data1) {
-          console.log(JSON.parse(data1));
           parsedData = JSON.parse(data1);
           var countryCode = parsedData.alpha2Code;
           var countryName = parsedData.name;
-          console.log(parsedData.flag);
-
           $("#select").val(countryCode).change();
-          //for (i = 0; i < geoData[0].features.length; i++) {
-          // console.log(geoData[0].features[i].properties.ISO_A3);
-          //if (geoData[0].features[i].properties.ISO_A3 == countryCode) {
-          // const latLngs = L.GeoJSON.coordsToLatLngs(
-          //  geoData[0].features[i].geometry.coordinates,
-          // 2
-          //);
-          //L.geoJSON(geoData[0].features[i])
-          // .bindPopup(geoData[0].features[i].properties.ADMIN)
-          //.addTo(map);
-          //map.fitBounds(latLngs);
-          //$("#select")
-          // .val(geoData[0].features[i].properties.ADMIN)
-          //.change();
-          // }
-          // }
-
-          //vectorLayer.bringToBack();
-          // if (countryCode === "GB") {
-          // var marker = L.marker(
-          // [parsedData.latlng[0], parsedData.latlng[1]],
-          //{
-          // icon: customIcon,
-          //draggable: "true",
-          //}
-          // )
-          //  .bindPopup(
-          //   "<b>" +
-          //    parsedData.nativeName +
-          //   ", " +
-          //  parsedData.region +
-          // ' </b><br> <svg width="50" height="50"><image href="' +
-          //parsedData.flag +
-          //'" height="50" width="50"/> </svg>'
-          // )
-          //.openPopup()
-          //.addTo(map);
-          // } else {
-          //  var marker = L.marker(
-          //   [parsedData.latlng[0], parsedData.latlng[1]],
-          //  {
-          //   icon: customIcon,
-          //  draggable: "true",
-          // }
-          //)
-          //.bindPopup(
-          // "<b>" +
-          // parsedData.name +
-          // ", " +
-          // parsedData.region +
-          //' </b><br> <svg width="50" height="50"><image href="' +
-          //parsedData.flag +
-          //'" height="50" width="50"/> </svg>'
-          //)
-          //.openPopup()
-          //.addTo(map);
-          // }
-
-          //   marker.on("dragend", function (event) {
-          //    var marker = event.target;
-          //   var position = marker.getLatLng();
-          //  console.log(position);
-          // marker
-          //  .setLatLng(position, {draggable: "true"})
-
-          //  .update();
-          //});
-
-          //marker.on("click", function (e) {
-          // map.setView([e.latlng.lat, e.latlng.lng], 12);
-          //});
 
           var circle = L.circle([parsedData.latlng[0], parsedData.latlng[1]], {
             color: "red",
@@ -149,8 +75,8 @@ $(document).ready(function () {
 
   var geoIcon = L.Icon.extend({
     iconUrl: "marker.svg",
-    iconSize: [40, 40], // size of the icon
-    iconAnchor: [20, 20], // point of the icon which will correspond to marker's location
+    iconSize: [40, 40],
+    iconAnchor: [20, 20],
   });
 
   map.on("click", function (e, latlng) {
@@ -163,91 +89,24 @@ $(document).ready(function () {
       },
       dataType: "json",
       success: function (data1) {
-        console.log(e.latlng.lat);
-        console.log(JSON.parse(data1));
         parsedData = JSON.parse(data1);
         var countryCode = parsedData.alpha2Code;
         var countryName = parsedData.name;
-        console.log(countryName);
         $("#select").val(countryCode).change();
-
-        //console.log(countryCode);
-        //var marker = L.marker([parsedData.latlng[0], parsedData.latlng[1]], {
-        // icon: customIcon,
-        //draggable: "true",
-        //})
-        // .bindPopup(
-        //  "<b>" +
-        //   parsedData.name +
-        //  ", " +
-        // parsedData.region +
-        //' </b><br> <svg width="50" height="50"><image href="' +
-        //parsedData.flag +
-        //'" height="50" width="50"/> </svg>'
-        // )
-        //.openPopup()
-        //.addTo(map);
-
-        // marker.on("dragend", function (event) {
-        //  var marker = event.target;
-        // var position = marker.getLatLng();
-        //console.log(position);
-        //marker
-        // .setLatLng(position, {draggable: "true"})
-
-        // .update();
-        //});
-        //var circle = L.circle([parsedData.latlng[0], parsedData.latlng[1]], {
-        // color: "red",
-        //fillColor: "#f03",
-        //fillOpacity: 0.2,
-        //radius: 500,
-        //}).addTo(map);
-
-        //  marker.on("click", function (e) {
-        //   map.setView([e.latlng.lat, e.latlng.lng], 12);
-        //});
       },
     });
   });
 
-  // function highlightFeature(e) {
-  // this.setStyle({
-  // weight: 5,
-  //color: "green",
-  //dashArray: "",
-  //fillOpacity: 0.4,
-  //});
-  //("");
-  //}
-
-  // function resetHighlight(e) {
-  // vectorLayer.resetStyle(this);
-  //this.bringToBack();
-  //}
-  //function clickColorChange(e) {
-  // this.setStyle({
-  //  color: "yellow",
-  //});
-  //this.bringToBack();
-  //}
   $("#form").change(function (e) {
     e.preventDefault();
-    //var datastring = $("#form").serialize();
     var data1 = $("#form").serializeArray();
-    //console.log(data1[0].value);
     var selectedCountry = data1[0].value;
-    console.log(selectedCountry);
-    console.log(data1);
     $.ajax({
       type: "POST",
       url: "getCountryBorderFromCountryCode.php",
       data: {x: selectedCountry},
       dataType: "json",
       success: function (data, error, status) {
-        console.log(data.data);
-        // map.removeLayer(layer);
-        //layer.clearLayers();
         const layer = L.geoJSON(data.data, {
           weight: 3,
           color: "rebeccapurple",
@@ -266,8 +125,6 @@ $(document).ready(function () {
 
           layer.bindPopup(data.data.properties.name).addTo(map);
           map.fitBounds(latLngs);
-          //layer.clearLayers();
-          //map.removeLayer(layer);
         } else {
           const latLngs = L.GeoJSON.coordsToLatLngs(
             data.data.geometry.coordinates,
@@ -280,42 +137,29 @@ $(document).ready(function () {
         $("#form").change(function (e) {
           map.removeLayer(layer);
           map.removeLayer(layer2);
-          //marker.remove();
         });
-        //console.log(latLngs);
-        //L.geoJSON(data.data).bindPopup(data.data.properties.name).addTo(map);
-        //map.fitBounds(latLngs);
-        //$("#select").val(data.data.properties.name).change();
       },
-      error: function (error) {
-        console.log(error);
-      },
+      error: function (error) {},
     });
-
-    //HERE ADD THE OCOUNTRY DETAILS
 
     var datastring = $("#form").serialize();
     var data2 = $("#form").serializeArray();
-
     var selectedCountry = data2[0].value;
-    console.log(localStorage.city);
 
     if (localStorage.getItem("city") !== selectedCountry) {
       $.ajax({
         url: "test2.php",
         type: "POST",
-        data: datastring,
+        data: {countries: datastring},
         dataType: "json",
         async: true,
         success: function (res) {
-          console.log(res);
           var result = JSON.parse(res[0]);
           JSONdata1 = JSON.parse(res[1]);
           JSONdata2 = JSON.parse(res[2]);
           JSONdata3 = JSON.parse(res[3]);
           JSONdata4 = JSON.parse(res[4]);
           JSONdata6 = JSON.parse(res[6]);
-          console.log(JSON.parse(res[6]));
 
           var city = result.name;
           var timezone = result.timezones;
@@ -371,8 +215,6 @@ $(document).ready(function () {
             .openPopup()
             .addTo(map);
           $("#form").change(function (e) {
-            // map.removeLayer(layer);
-            //map.removeLayer(layer2);
             marker.remove();
           });
 
@@ -402,22 +244,6 @@ $(document).ready(function () {
             $("#regionalBlocks").empty();
             $("#regionalBlocks").append("-");
           } else {
-            // var marker = L.marker([result.latlng[0], result.latlng[1]], {
-            //  icon: customIcon,
-            // draggable: "true",
-            //})
-            // .bindPopup(
-            //  "<b>" +
-            //   result.name +
-            //  ", " +
-            // result.region +
-            //' </b><br> <svg width="50" height="50"><image href="' +
-            //result.flag +
-            //'" height="50" width="50"/> </svg>'
-            //   )
-            //  .openPopup()
-            // .addTo(map);
-
             $("#city").empty();
             $("#city").append(result.name);
             $("#timezone").empty();
@@ -464,7 +290,8 @@ $(document).ready(function () {
             $("#icon").append(
               "<img src='https://openweathermap.org/img/wn/" +
                 JSONdata1.weather[0].icon +
-                "@2x.png'><br>"
+                "@2x.png'><br>" +
+                JSONdata1.weather[0].main
             );
             $("#min_temp").empty();
             $("#min_temp").append(JSONdata1.main.temp_min + "°F<br>");
@@ -593,7 +420,6 @@ $(document).ready(function () {
           }
         },
         error: function (xhr, status, error) {
-          console.log(error);
           $("#EU").empty();
           $("#EU").append("-");
           $("#area").empty();
@@ -643,10 +469,9 @@ $(document).ready(function () {
         dataType: "json",
         async: true,
         success: function (res) {
-          console.log(res);
           var lat = res.results[0].geometry.lat;
           var lng = res.results[0].geometry.lng;
-          console.log(lat);
+
           $("#wiki").empty();
           $("#wiki").append(
             "<div class='google'><a href='https://www.google.com/maps/search/?api=1&query=" +
@@ -768,39 +593,4 @@ $(document).ready(function () {
       $("#EU").append(EU);
     }
   });
-  //add hereee!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-  //  layer.on({
-  ///  mouseover: highlightFeature,
-  // mouseout: resetHighlight,
-  //click: clickColorChange,
-  //});
-
-  //}
-  //  }
-  //layer.on({
-  // mouseover: highlightFeature,
-  // mouseout: resetHighlight,
-  //click: clickColorChange,
-  // });
-  //  layer.bindPopup(country.properties.ADMIN);
-  // layer.on("click", function (e) {
-  //  map.fitBounds(layer.getBounds());
-  // e.target.setStyle({
-  //  color: "green",
-  //});
-  //$("#select").val(country.properties.ADMIN).change();
-  //console.log("clicked");
-  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  //$("#select").val(country.properties.ADMIN).change();
-  //HERE ADD THE OCOUNTRY DETAILS
-  //console.log("clicked");
-  //$("#form").submit(function (e) {
-  // e.preventDefault();
-
-  /////////////////I am also deleting this its in notepad repeated ajax calls:
-
-  ///I have deleted the follwing form.change():
 });
-
-//});
