@@ -1,34 +1,16 @@
 <?php
 
-//$country=$_POST['countries'];
 $x = $_POST['x'];
 $y = $_POST['y'];
 $ch = curl_init();
 
-
-        // set url
-       // curl_setopt($ch, CURLOPT_URL, 'https://api.opencagedata.com/geocode/v1/json?q='.$country.'&key=f633db6e5a2842dd96bf3b1b66a53a23');
         curl_setopt($ch, CURLOPT_URL,'https://api.opencagedata.com/geocode/v1/json?q='.$x.','.$y.'&pretty=1&key=f633db6e5a2842dd96bf3b1b66a53a23');
-        //return the transfer as a string
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-      
         $output = curl_exec($ch);
-       
         $yummy = json_decode($output);
-        //echo $yummy;
-        //Instead of city use country code, or country in components geolocate result to access rest counrties info
-//echo $yummy;
        $country=$yummy->results[0]->components->country_code;
-       //$x=$yummy->results[0]->geometry->lat;
-       //$y=$yummy->results[0]->geometry->lng;
-//echo $country;
         if($output!==0){
                 $url1= 'https://restcountries.eu/rest/v2/alpha/'.$country;
-                //$url2='http://api.openweathermap.org/data/2.5/weather?lat='.$x.'&lon='.$y.'&appid=c5e47bda76961d3cbe80edc453c83858';
-                //$url3='http://api.geonames.org/wikipediaSearchJSON?q='.$country.'&maxRows=10&username=zarakhaliq';
-                //$url2='http://api.geonames.org/findNearbyWikipediaJSON?lat='.$x.'&lng='.$y.'&username=zarakhaliq';
-                
                 $nodes = array($url1);
                 $node_count = count($nodes);
                 
@@ -52,26 +34,14 @@ $ch = curl_init();
                 {
                     $results[] = curl_multi_getcontent  ( $curl_arr[$i]  );
                 }
-                
-      // curl_setopt($ch, CURLOPT_URL, 'https://restcountries.eu/rest/v2/alpha/'.$city);
 
-        //curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-        //$result = curl_exec($ch);
         }
         // close curl resource to free up system resources
         //curl_close($ch);     
 
         header('Content-Type: application/json; charset=UTF-8');
         echo json_encode($results, JSON_UNESCAPED_UNICODE);
-        //echo $output;
-       // echo $result;
 
-        
-        
-
-
-// set url
 
 
 
