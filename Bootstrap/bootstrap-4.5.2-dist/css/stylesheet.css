@@ -11,14 +11,14 @@ body {
 h2 {
   color: hotpink;
 }
-h6 {
+.myContainer h6 {
   color: rgb(252, 32, 142);
   animation: textanimation2 1s ease-in-out;
 }
 
-p {
-  color: white;
-  font-style: italic;
+.myContainer p {
+  color: #00000099;
+
   animation: textanimation2 1s ease-in-out;
 }
 @keyframes textanimation2 {
@@ -36,11 +36,15 @@ p {
   color: rgb(252, 32, 142) !important;
 }
 a {
-  color: rebeccapurple;
+  color: blue;
 }
 
 a:hover {
-  color: hotpink;
+  color: grey;
+  text-decoration: none;
+}
+#flag {
+  margin-top: 20px;
 }
 .modal.fade .modal-dialog {
   -webkit-transform: scale(0.1);
@@ -65,9 +69,7 @@ a:hover {
 }
 
 #modalButton {
-  background-color: rebeccapurple;
   margin-left: 5px;
-  color: white;
 }
 
 .modal-title {
@@ -93,13 +95,17 @@ a:hover {
 .modal-header {
   padding: 9px;
   border-bottom: 1px solid #eee;
-  background-color: rgb(252, 32, 142);
+  background-color: hotpink;
   -webkit-border-top-left-radius: 5px;
   -webkit-border-top-right-radius: 5px;
   -moz-border-radius-topleft: 5px;
   -moz-border-radius-topright: 5px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  font-family: "Roboto", sans-serif;
+}
+.modal-body {
+  font-family: "Roboto", sans-serif;
 }
 .modal-footer {
   background-color: transparent;
@@ -119,51 +125,62 @@ a:hover {
   color: white;
 }
 #modal-background {
-  background: radial-gradient(circle closest-side, #333, black);
+  background: radial-gradient(circle closest-side, white, whitesmoke);
+}
+.newsTitle {
+  font-size: 20px;
 }
 
 #address {
-  color: white;
+  color: #00000099;
 }
 #icon {
-  color: white;
+  color: #00000099;
 }
 #min_temp {
-  color: white;
+  color: #00000099;
 }
 #max_temp {
-  color: white;
+  color: #00000099;
 }
 #humidity {
-  color: white;
+  color: #00000099;
 }
 #timezone {
-  color: white;
+  color: #00000099;
 }
 #wiki {
   padding-top: 5px;
 }
 #wikipost1 {
-  color: white;
+  color: #00000099;
 }
 #wikipost2 {
-  color: white;
+  color: #00000099;
 }
 #wikipost3 {
-  color: white;
+  color: #00000099;
 }
-.wikiTitle {
-  padding-top: 5px;
-  padding-left: 7px;
-  padding-bottom: 5px;
-  font-weight: bold;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: rgb(252, 32, 142);
+.card-body p {
+  color: #00000099;
+}
+#news p {
+  color: black;
+}
+#news .newsDate {
+  color: #00000099;
+}
+.coronaDate {
+  color: #00000099;
+}
+.wiki-title {
+  color: black !important;
+  font-size: 18px;
 }
 .wikiInfo {
   padding-bottom: 20px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: white;
+  font-family: "Roboto", sans-serif;
+  color: #00000099;
 }
 .modalBody70 {
   min-height: 70vh;
